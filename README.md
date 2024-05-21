@@ -1,55 +1,59 @@
-# Dokumentacja strony Śmietnikomatu
+# Documentation of the Wastebin System Website
 
-## Spis treści
-1. [Opis aplikacji](#opis-aplikacji)
-2. [Opis funkcjonalności](#opis-funkcjonalności)
-3. [Dane do logowania](#dane-do-logowania)
+[Link to the app](http://46.242.130.6:3012/login)
 
-## Opis aplikacji 
-Aplikacja "Śmietnikomat" to kompleksowe narzędzie dedykowane zarządzaniu systemem altan śmietnikowych. Jest to platforma internetowa, która umożliwia interakcję między różnymi podmiotami, takimi jak użytkownicy indywidualni, urzędnicy, firmy, spółdzielnie mieszkaniowe oraz administratorzy.
+[Dokumentacja po polsku](https://github.com/fyrodems/trashbin-manager/blob/main/documentationPL.md)
 
-Całość systemu działa na zasadzie gmin. Użytkownicy indywidualni przypisywani są do gmin. Następnie urzędnicy i superUrzędnicy oraz admini z konkretnej gminy mogą zarządzać kontami użytkowników. Firmy i spółdzielnie są niemal autonomicznymi bytami.
+## Table of Contents
+1. [Application Description](#application-description)
+2. [Functionality Description](#functionality-description)
+3. [Login Data](#login-data)
 
-Dostęp do altan śmietnikowych jest możliwy za pomocą kart dostępu.
+## Application Description 
+The "Wastebin System" application is a comprehensive tool dedicated to managing the system of wastebin shelters. It is an online platform that facilitates interaction between various entities, such as individual users, officials, companies, housing cooperatives, and administrators.
 
-Aplikacja zapewnia bezpieczne logowanie, kontrolę dostępu do danych oraz interfejs użytkownika zaprojektowany w sposób intuicyjny i przyjazny dla użytkownika końcowego. Dzięki temu, wszystkie zaangażowane strony mogą efektywnie zarządzać systemem altan śmietnikowych, monitorować statystyki i podejmować odpowiednie działania w celu utrzymania porządku i efektywnego zarządzania odpadami.
+The entire system operates based on municipalities. Individual users are assigned to municipalities. Then, officials, superOfficials, and admins from a specific municipality can manage user accounts. Companies and cooperatives are almost autonomous entities.
 
-## Opis funkcjonalności 
+Access to wastebin shelters is possible via access cards.
 
-### Użytkownik indywidualny
-- Może podglądać wyrzucone przez siebie śmieci, karty do obsługi altany śmietnikowej, umowy, dane profilowe oraz historię zgłoszonych wniosków.
-- Nie ma możliwości samodzielnego dodawania sobie kart/umów - wszystko jest wysyłane do odpowiedniej gminy, gdzie musi to potwierdzić urzędnik.
-- Może jedynie zablokować kartę, anulować wniosek oraz zmienić email, numer telefonu oraz hasło.
+The application ensures secure login, access control to data, and a user interface designed to be intuitive and user-friendly. This allows all involved parties to efficiently manage the system of wastebin shelters, monitor statistics, and take appropriate actions to maintain order and effectively manage waste.
 
-### Urzędnik
-- Akceptuje lub odrzuca wnioski użytkowników.
-- Może wyszukiwać wszystkich użytkowników zamieszkujących jego gminę lub mających w niej przynajmniej jeden ze swoich adresów.
-- Ma możliwość edycji danych użytkowników i zablokowania konta.
-- Posiada podgląd altan znajdujących się w gminie wraz z listą przypisanych umów.
+## Functionality Description 
 
-### SuperUrzędnik
-- Ma takie same uprawnienia jak urzędnik.
-- Może dodatkowo tworzyć nowe konta urzędników w swojej gminie.
+### Individual User
+- Can view their own waste disposal records, wastebin shelter access cards, agreements, profile data, and the history of submitted applications.
+- Cannot add cards/agreements on their own - everything is sent to the appropriate municipality, where it must be confirmed by an official.
+- Can only block a card, cancel an application, and change email, phone number, and password.
 
-### Firma
-- Oprócz podglądu statystyk oraz swoich danych, ma również podgląd posiadanych altan oraz kart dostępu.
-- Ma możliwość zmiany swoich danych oraz przypisywania dostępów do swoich altan śmietnikowych do posiadanych kart.
-- Może złożyć wniosek o przysłanie pakietu nowych kart.
+### Official
+- Accepts or rejects user applications.
+- Can search for all users residing in their municipality or having at least one of their addresses there.
+- Can edit user data and block accounts.
+- Has a view of the wastebin shelters in the municipality along with the list of assigned agreements.
 
-### Spółdzielnia mieszkaniowa
-- Podobna do firmy, lecz dodatkowo posiada możliwość przypisywania swoich lokatorów do siebie.
-- Posiada własne karty, które wypożycza swoim lokatorom.
+### SuperOfficial
+- Has the same permissions as an official.
+- Additionally, can create new official accounts in their municipality.
+
+### Company
+- In addition to viewing statistics and its own data, it also has a view of its wastebin shelters and access cards.
+- Can change its data and assign access to its wastebin shelters to the held cards.
+- Can apply for a package of new cards.
+
+### Housing Cooperative
+- Similar to a company but additionally can assign its tenants to itself.
+- Has its own cards, which it lends to its tenants.
 
 ### Administrator
-- Posiada możliwość dodawania altan śmietnikowych do systemu oraz przypisywania ich konkretnym podmiotom.
-- Tworzy konta superUrzędników oraz zatwierdza wnioski o wysłanie pakietów kart.
+- Can add wastebin shelters to the system and assign them to specific entities.
+- Creates superOfficial accounts and approves requests for card packages.
 
-## Dane do logowania
-Wszystkie konta mają hasło: qqqqqqq1
+## Login Data
+All accounts have the password: qqqqqqq1
 
-**Loginy użytkowników:**
-- użytkownik indywidualny: uzytkownik@kratki.com
-- urzędnik: urzednik@kratki.com
-- superUrzędnik: superurzednik@kratki.com
-- firma: firma@kratki.com
-- spółdzielnia mieszkaniowa: spoldzielnia@kratki.com
+**User Logins:**
+- Individual user: user@kratki.com
+- Official: official@kratki.com
+- SuperOfficial: superofficial@kratki.com
+- Company: company@kratki.com
+- Housing Cooperative: cooperative@kratki.com
