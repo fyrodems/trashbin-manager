@@ -1,9 +1,0 @@
-main
-SKIP_PREFLIGHT_CHECK=true
-
-server
-  DATABASE_URL='sqlserver://46.242.138.165;database=smietnikomat2;user=sa;password=Kratki1@3;encrypt=true;trustServerCertificate=true'
-  ACCESS_TOKEN_SECRET='somekindofsecret'
-  ACCESS_TOKEN_EXPIRES_IN='15m'
-  REFRESH_TOKEN_SECRET='niewiemco'
-  REFRESH_TOKEN_EXPIRES_IN='24h'
