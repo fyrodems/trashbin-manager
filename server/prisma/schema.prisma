@@ -1,0 +1,340 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  users_ID                           Int                           @id @unique
+  users_login                        String                        @unique
+  users_password                     String
+  users_typeID                       Int                           @default(4)
+  users_statusID                     Int                           @default(3)
+  users_identificationNumber         String                        @unique
+  users_phoneNumber                  String?
+  users_name                         String
+  users_PINnumber                    String?
+  users_recoveryToken                String?
+  AddressApplicationsReviewer        Address_Applications[]        @relation("person reviewing application")
+  AddressApplicationsSubmitter       Address_Applications[]        @relation("person submitting application")
+  CardsApplicationsReviewer          Cards_Applications[]          @relation("person reviewing application")
+  CardsApplicationsSubmitter         Cards_Applications[]          @relation("person submitting application")
+  CardsBulkOrder                     CardsBulk_Order[]
+  DumpsterOwners                     Dumpster_Owners[]
+  DumpsterApplicationsReviewer       Dumpsters_Applications[]      @relation("person reviewing application")
+  DumpsterApplicationsSubmitter      Dumpsters_Applications[]      @relation("person submitting application")
+  Garbage                            Garbage[]
+  HousingAssociationOccupant         HousingAssociation_Occupant[] @relation("association")
+  HousingAssociationOccupantOccupant HousingAssociation_Occupant[] @relation("association occupant")
+  PersonalDataApplicationsReviewer   PersonalData_Applications[]   @relation("person reviewing application")
+  PersonalDataApplicationsSubmitter  PersonalData_Applications[]   @relation("person submitting application")
+  Session                            Session[]
+  status                             Status                        @relation(fields: [users_statusID], references: [status_ID], onUpdate: NoAction)
+  type                               Type                          @relation(fields: [users_typeID], references: [type_ID], onUpdate: NoAction)
+  UsersAddress                       Users_Address[]
+  UsersCardsRenter                   Users_Cards[]                 @relation("only for hoseAssociation - occupant card is rented to")
+  UsersCardsMainUser                 Users_Cards[]                 @relation("main user")
+  UsersContract                      Users_Contract[]
+}
+
+model Session {
+  id     String @id
+  userId Int
+  user   Users  @relation(fields: [userId], references: [users_ID])
+}
+
+model Users_Address {
+  usersAddress_ID               Int                    @id @unique
+  usersAddress_userID           Int
+  usersAddress_street           String
+  usersAddress_houseNumber      String
+  usersAddress_apartamentNumber String?
+  usersAddress_postCode         String
+  usersAddress_city             String
+  usersAddress_typeID           Int
+  usersAddress_communityID      Int
+  usersAddress_statusID         Int                    @default(3)
+  addressApplications           Address_Applications[]
+  community                     Community              @relation(fields: [usersAddress_communityID], references: [community_ID])
+  status                        Status                 @relation(fields: [usersAddress_statusID], references: [status_ID], onUpdate: NoAction)
+  type                          Type                   @relation(fields: [usersAddress_typeID], references: [type_ID])
+  user                          Users                  @relation(fields: [usersAddress_userID], references: [users_ID])
+}
+
+model Users_Cards {
+  usersCards_ID             Int                      @id @unique
+  usersCards_userID         Int
+  usersCards_statusID       Int
+  usersCards_number         String
+  usersCards_numberPIN      String?
+  usersCards_rentedToUserID Int?
+  usersCards_typeID         Int                      @default(26)
+  usersCards_dumpstersIDs   String                   @default("")
+  DumpstersApplications     Dumpsters_Applications[]
+  userCardIsRentedTo        Users?                   @relation("only for hoseAssociation - occupant card is rented to", fields: [usersCards_rentedToUserID], references: [users_ID])
+  status                    Status                   @relation(fields: [usersCards_statusID], references: [status_ID])
+  type                      Type                     @relation(fields: [usersCards_typeID], references: [type_ID])
+  user                      Users                    @relation("main user", fields: [usersCards_userID], references: [users_ID], onUpdate: NoAction)
+  Garbages                  Garbage[]
+}
+
+model Dumpster {
+  dumpster_ID           Int                      @id @unique
+  dumpster_name         String                   @unique
+  dumpster_description  String?
+  dumpster_street       String
+  dumpster_city         String
+  dumpster_postCode     String
+  dumpster_communityID  Int
+  dumpster_houseNumbers String
+  dumpster_hasError     Boolean                  @default(false)
+  status                Status                   @relation(fields: [dumpster_statusID], references: [status_ID])
+  dumpster_statusID     Int                      @default(27)
+  dumpster              Community                @relation(fields: [dumpster_communityID], references: [community_ID])
+  DumpsterBin           Dumpster_Bin[]
+  DumpsterContract      Dumpster_Contract[]
+  DumpsterOwners        Dumpster_Owners[]
+  DumpsterApplications  Dumpsters_Applications[]
+  Garbage               Garbage[]
+}
+
+model Garbage {
+  garbage_ID         Int         @id @unique
+  garbage_usersID    Int
+  garbage_dumpsterID Int
+  garbage_typeID     Int
+  garbage_weight     Float
+  garbage_date       DateTime
+  card               Users_Cards @relation(fields: [garbage_cardID], references: [usersCards_ID], onDelete: NoAction, onUpdate: NoAction)
+  garbage_cardID     Int
+  dumpster           Dumpster    @relation(fields: [garbage_dumpsterID], references: [dumpster_ID], onUpdate: NoAction)
+  type               Type        @relation(fields: [garbage_typeID], references: [type_ID])
+  user               Users       @relation(fields: [garbage_usersID], references: [users_ID])
+}
+
+model Type {
+  type_ID                        Int                         @id @unique
+  type_name                      String
+  type_description               String?
+  type_type                      String
+  AddressApplicationsChangeType  Address_Applications[]      @relation("type of change")
+  AddressApplicationsAddressType Address_Applications[]      @relation("type of address")
+  CardsApplications              Cards_Applications[]
+  DumpsterBin                    Dumpster_Bin[]
+  DumpstersApplications          Dumpsters_Applications[]
+  Garbage                        Garbage[]
+  PersonalDataApplications       PersonalData_Applications[]
+  Rate                           Rate[]
+  Users                          Users[]
+  UsersAddress                   Users_Address[]
+  UsersCards                     Users_Cards[]
+}
+
+model Status {
+  status_ID                  Int                           @id @unique
+  status_name                String
+  status_description         String?
+  status_type                String
+  AddressApplications        Address_Applications[]
+  CardsApplications          Cards_Applications[]
+  CardsBulkOrder             CardsBulk_Order[]
+  DumpsterContract           Dumpster_Contract[]
+  DumpsterOwners             Dumpster_Owners[]
+  DumpstersApplications      Dumpsters_Applications[]
+  HousingAssociationOccupant HousingAssociation_Occupant[]
+  PersonalDataApplications   PersonalData_Applications[]
+  Rate                       Rate[]
+  Users                      Users[]
+  UsersAddres                Users_Address[]
+  UsersCards                 Users_Cards[]
+  UsersContract              Users_Contract[]
+  Dumpsters                  Dumpster[]
+}
+
+model Community {
+  community_ID             Int                    @id @unique
+  community_name           String
+  community_description    String
+  community_municipalityID Int
+  community_voivodeshipID  Int
+  AddressApplications      Address_Applications[]
+  municipality             Municipality           @relation(fields: [community_municipalityID], references: [municipality_ID])
+  voivodeship              Voivodeship            @relation(fields: [community_voivodeshipID], references: [voivodeship_ID])
+  Dumpster                 Dumpster[]
+  DumpsterContract         Dumpster_Contract[]
+  UsersAddress             Users_Address[]
+  UsersContract            Users_Contract[]
+}
+
+model Municipality {
+  municipality_ID            Int         @id @unique
+  municipality_name          String
+  municipality_description   String
+  municipality_voivodeshipID Int
+  Community                  Community[]
+  voivodeship                Voivodeship @relation(fields: [municipality_voivodeshipID], references: [voivodeship_ID], onUpdate: NoAction)
+}
+
+model Voivodeship {
+  voivodeship_ID          Int            @id @unique
+  voivodeship_name        String
+  voivodeship_description String?
+  Community               Community[]
+  Municipality            Municipality[]
+}
+
+model Cards_Applications {
+  cardsApplications_ID           Int       @id @unique
+  cardsApplications_dateAdded    DateTime
+  cardsApplications_dateReviewed DateTime?
+  cardsApplications_typeID       Int
+  cardsApplications_reviewedBy   Int?
+  cardsApplications_userID       Int
+  cardsApplications_statusID     Int
+  cardsApplications_dumpstersIDs String
+  changeType                     Type      @relation(fields: [cardsApplications_typeID], references: [type_ID])
+  reviewer                       Users?    @relation("person reviewing application", fields: [cardsApplications_reviewedBy], references: [users_ID], onDelete: NoAction, onUpdate: NoAction)
+  status                         Status    @relation(fields: [cardsApplications_statusID], references: [status_ID])
+  user                           Users     @relation("person submitting application", fields: [cardsApplications_userID], references: [users_ID])
+}
+
+model Address_Applications {
+  addressApplications_ID               Int            @id @unique
+  addressApplications_dateAdded        DateTime
+  addressApplications_dateReviewed     DateTime?
+  addressApplications_typeID           Int
+  addressApplications_reviewedBy       Int?
+  addressApplications_userID           Int
+  addressApplications_statusID         Int
+  addressApplications_street           String
+  addressApplications_houseNumber      String
+  addressApplications_apartamentNumber String?
+  addressApplications_postCode         String
+  addressApplications_addressTypeID    Int
+  addressApplications_communityID      Int
+  addressApplications_city             String
+  addressApplications_addressID        Int?
+  address                              Users_Address? @relation(fields: [addressApplications_addressID], references: [usersAddress_ID], onDelete: NoAction, onUpdate: NoAction)
+  changeType                           Type           @relation("type of change", fields: [addressApplications_typeID], references: [type_ID], onUpdate: NoAction)
+  community                            Community      @relation(fields: [addressApplications_communityID], references: [community_ID])
+  reviewer                             Users?         @relation("person reviewing application", fields: [addressApplications_reviewedBy], references: [users_ID], onDelete: NoAction, onUpdate: NoAction)
+  status                               Status         @relation(fields: [addressApplications_statusID], references: [status_ID])
+  type                                 Type           @relation("type of address", fields: [addressApplications_addressTypeID], references: [type_ID])
+  user                                 Users          @relation("person submitting application", fields: [addressApplications_userID], references: [users_ID])
+}
+
+model Dumpsters_Applications {
+  dumpstersApplications_ID           Int         @id @unique
+  dumpstersApplications_dateAdded    DateTime
+  dumpstersApplications_dateReviewed DateTime?
+  dumpstersApplications_reviewedBy   Int?
+  dumpstersApplications_userID       Int
+  dumpstersApplications_dumpsterID   Int
+  dumpstersApplications_typeID       Int
+  dumpstersApplications_cardID       Int
+  dumpstersApplications_statusID     Int
+  card                               Users_Cards @relation(fields: [dumpstersApplications_cardID], references: [usersCards_ID], onUpdate: NoAction)
+  changeType                         Type        @relation(fields: [dumpstersApplications_typeID], references: [type_ID], onUpdate: NoAction)
+  dumpster                           Dumpster    @relation(fields: [dumpstersApplications_dumpsterID], references: [dumpster_ID], onUpdate: NoAction)
+  reviewer                           Users?      @relation("person reviewing application", fields: [dumpstersApplications_reviewedBy], references: [users_ID], onDelete: NoAction, onUpdate: NoAction)
+  status                             Status      @relation(fields: [dumpstersApplications_statusID], references: [status_ID])
+  user                               Users       @relation("person submitting application", fields: [dumpstersApplications_userID], references: [users_ID])
+}
+
+model PersonalData_Applications {
+  personalDataApplications_ID           Int       @id @unique
+  personalDataApplications_dateAdded    DateTime
+  personalDataApplications_dateReviewed DateTime?
+  personalDataApplications_typeID       Int
+  personalDataApplications_reviewedBy   Int?
+  personalDataApplications_userID       Int
+  personalDataApplications_statusID     Int
+  personalDataApplications_name         String
+  changeType                            Type      @relation(fields: [personalDataApplications_typeID], references: [type_ID])
+  reviewer                              Users?    @relation("person reviewing application", fields: [personalDataApplications_reviewedBy], references: [users_ID], onDelete: NoAction, onUpdate: NoAction)
+  status                                Status    @relation(fields: [personalDataApplications_statusID], references: [status_ID])
+  user                                  Users     @relation("person submitting application", fields: [personalDataApplications_userID], references: [users_ID])
+}
+
+model Rate {
+  rate_ID                 Int                @id @unique
+  rate_value              Float
+  rate_dumpsterContractID Int?
+  rate_typeID             Int
+  rate_statusID           Int                @default(1)
+  rate_userContractID     Int?
+  dumpsterContract        Dumpster_Contract? @relation(fields: [rate_dumpsterContractID], references: [dumpsterContract_ID], onDelete: NoAction, onUpdate: NoAction)
+  garbageType             Type               @relation(fields: [rate_typeID], references: [type_ID], onUpdate: NoAction)
+  status                  Status             @relation(fields: [rate_statusID], references: [status_ID], onUpdate: NoAction)
+  userContract            Users_Contract?    @relation(fields: [rate_userContractID], references: [usersContract_ID])
+}
+
+model Dumpster_Contract {
+  dumpsterContract_ID          Int       @id @unique
+  dumpsterContract_number      String
+  dumpsterContract_dumpsterID  Int
+  dumpsterContract_dateFrom    DateTime
+  dumpsterContract_dateTo      DateTime
+  dumpsterContract_statusID    Int
+  dumpsterContract_communityID Int
+  community                    Community @relation(fields: [dumpsterContract_communityID], references: [community_ID], onUpdate: NoAction)
+  dumpster                     Dumpster  @relation(fields: [dumpsterContract_dumpsterID], references: [dumpster_ID], onUpdate: NoAction)
+  status                       Status    @relation(fields: [dumpsterContract_statusID], references: [status_ID])
+  Rate                         Rate[]
+}
+
+model Users_Contract {
+  usersContract_ID          Int       @id @unique
+  usersContract_userID      Int
+  usersContract_number      String
+  usersContract_dateFrom    DateTime
+  usersContract_dateTo      DateTime
+  usersContract_statusID    Int
+  usersContract_communityID Int
+  Rate                      Rate[]
+  community                 Community @relation(fields: [usersContract_communityID], references: [community_ID], onUpdate: NoAction)
+  status                    Status    @relation(fields: [usersContract_statusID], references: [status_ID])
+  user                      Users     @relation(fields: [usersContract_userID], references: [users_ID])
+}
+
+model Dumpster_Bin {
+  dumpsterBin_ID         Int      @id @unique
+  dumpsterBin_dumpsterID Int
+  dumpsterBin_isFull     Boolean  @default(false)
+  dumpsterBin_typeID     Int
+  dumpster               Dumpster @relation(fields: [dumpsterBin_dumpsterID], references: [dumpster_ID], onUpdate: NoAction)
+  garbageType            Type     @relation(fields: [dumpsterBin_typeID], references: [type_ID])
+}
+
+model Dumpster_Owners {
+  dumpsterOwners_ID         Int      @id @unique
+  dumpsterOwners_ownerID    Int
+  dumpsterOwners_dumpsterID Int
+  dumpsterOwners_statusID   Int      @default(1)
+  dumpster                  Dumpster @relation(fields: [dumpsterOwners_dumpsterID], references: [dumpster_ID], onUpdate: NoAction)
+  owner                     Users    @relation(fields: [dumpsterOwners_ownerID], references: [users_ID], onUpdate: NoAction)
+  status                    Status   @relation(fields: [dumpsterOwners_statusID], references: [status_ID])
+}
+
+model CardsBulk_Order {
+  cardsBulkOrder_ID         Int      @id @unique
+  cardsBulkOrder_userID     Int
+  cardsBulkOrder_numOfCards Int
+  cardsBulkOrder_statusID   Int      @default(3)
+  cardsBulkOrder_orderDate  DateTime
+  status                    Status   @relation(fields: [cardsBulkOrder_statusID], references: [status_ID])
+  user                      Users    @relation(fields: [cardsBulkOrder_userID], references: [users_ID], onUpdate: NoAction)
+}
+
+model HousingAssociation_Occupant {
+  housingAssociationOccupant_ID            Int    @id @unique
+  housingAssociationOccupant_occupantID    Int
+  housingAssociationOccupant_associationID Int
+  housingAssociationOccupant_statusID      Int    @default(1)
+  association                              Users  @relation("association", fields: [housingAssociationOccupant_associationID], references: [users_ID], onUpdate: NoAction)
+  occupant                                 Users  @relation("association occupant", fields: [housingAssociationOccupant_occupantID], references: [users_ID], onUpdate: NoAction)
+  status                                   Status @relation(fields: [housingAssociationOccupant_statusID], references: [status_ID])
+}

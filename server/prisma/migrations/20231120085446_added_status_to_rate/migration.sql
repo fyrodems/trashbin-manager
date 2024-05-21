@@ -1,0 +1,22 @@
+BEGIN TRY
+
+BEGIN TRAN;
+
+-- AlterTable
+ALTER TABLE [dbo].[Rate] ADD [rate_statusID] INT NOT NULL CONSTRAINT [Rate_rate_statusID_df] DEFAULT 1;
+
+-- AddForeignKey
+ALTER TABLE [dbo].[Rate] ADD CONSTRAINT [Rate_rate_statusID_fkey] FOREIGN KEY ([rate_statusID]) REFERENCES [dbo].[Status]([status_ID]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+
+IF @@TRANCOUNT > 0
+BEGIN
+    ROLLBACK TRAN;
+END;
+THROW
+
+END CATCH

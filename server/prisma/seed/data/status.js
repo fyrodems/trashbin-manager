@@ -1,0 +1,173 @@
+module.exports = [
+  {
+    status_ID: 1,
+    status_name: 'aktywny',
+    status_description: null,
+    status_type: 'user',
+  },
+  {
+    status_ID: 2,
+    status_name: 'zablokowany',
+    status_description: null,
+    status_type: 'user',
+  },
+  {
+    status_ID: 3,
+    status_name: 'do zatwierdzenia',
+    status_description: null,
+    status_type: 'user',
+  },
+  {
+    status_ID: 4,
+    status_name: 'aktywna',
+    status_description: null,
+    status_type: 'cards',
+  },
+  {
+    status_ID: 5,
+    status_name: 'zablokowana',
+    status_description: null,
+    status_type: 'cards',
+  },
+  {
+    status_ID: 6,
+    status_name: 'do zatwierdzenia',
+    status_description: null,
+    status_type: 'cards',
+  },
+  {
+    status_ID: 7,
+    status_name: 'aktywne',
+    status_description: null,
+    status_type: 'polaczenie karty z altana',
+  },
+  {
+    status_ID: 8,
+    status_name: 'nieaktywne',
+    status_description: null,
+    status_type: 'polaczenie karty z altana',
+  },
+  {
+    status_ID: 9,
+    status_name: 'oczekująca',
+    status_description: null,
+    status_type: 'application',
+  },
+  {
+    status_ID: 10,
+    status_name: 'zatwierdzona',
+    status_description: null,
+    status_type: 'application',
+  },
+  {
+    status_ID: 11,
+    status_name: 'odrzucona',
+    status_description: null,
+    status_type: 'application',
+  },
+  {
+    status_ID: 12,
+    status_name: 'anulowana',
+    status_description:
+      'np. anulowany przez uzytkownika przed rozpatrzeniem przez urzednika',
+    status_type: 'application',
+  },
+  {
+    status_ID: 13,
+    status_name: 'aktualna',
+    status_description: null,
+    status_type: 'rate',
+  },
+  {
+    status_ID: 14,
+    status_name: 'historyczna',
+    status_description: null,
+    status_type: 'rate',
+  },
+  {
+    status_ID: 15,
+    status_name: 'aktualny',
+    status_description: null,
+    status_type: 'contract',
+  },
+  {
+    status_ID: 16,
+    status_name: 'historyczny',
+    status_description: null,
+    status_type: 'contract',
+  },
+  {
+    status_ID: 17,
+    status_name: 'aktualny',
+    status_description: null,
+    status_type: 'dumpsterOwner',
+  },
+  {
+    status_ID: 18,
+    status_name: 'historyczny',
+    status_description:
+      'uzywany w przypadku, gdy uzytkowniki przestaje byc wlascicielem altany',
+    status_type: 'dumpsterOwner',
+  },
+  {
+    status_ID: 19,
+    status_name: 'oczekujący',
+    status_description: null,
+    status_type: 'cardBulkOrder',
+  },
+  {
+    status_ID: 20,
+    status_name: 'zatwierdzony',
+    status_description: null,
+    status_type: 'cardBulkOrder',
+  },
+  {
+    status_ID: 21,
+    status_name: 'odrzucony',
+    status_description: null,
+    status_type: 'cardBulkOrder',
+  },
+  {
+    status_ID: 22,
+    status_name: 'aktywny',
+    status_description: null,
+    status_type: 'housingAssociationOccupant',
+  },
+  {
+    status_ID: 23,
+    status_name: 'histtoryczny',
+    status_description:
+      'uzywany, kiedy uzytkownik przestaje byc lokatorem spoldzielni',
+    status_type: 'housingAssociationOccupant',
+  },
+  {
+    status_ID: 24,
+    status_name: 'aktywny',
+    status_description: null,
+    status_type: 'address',
+  },
+  {
+    status_ID: 25,
+    status_name: 'oczekujący',
+    status_description: null,
+    status_type: 'address',
+  },
+  {
+    status_ID: 26,
+    status_name: 'historyczny',
+    status_description: null,
+    status_type: 'address',
+  },
+  {
+    status_ID: 27,
+    status_name: 'aktywna',
+    status_description: null,
+    status_type: 'altana',
+  },
+  {
+    status_ID: 28,
+    status_name: 'nieaktywna',
+    status_description: 'dotyczy również zutylizowanych altan',
+    status_type: 'altana',
+  },
+]
