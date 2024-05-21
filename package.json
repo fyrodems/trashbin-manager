@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "prettier": "prettier \"./client/src/**/*.{ts,tsx,json}\" --write",
+    "dev": "concurrently \"cd client && npm run dev\" \" cd server && npm run dev\" \"cd client && npm run codegen \"",
+    "prod" : "concurrently \"cd client && npm run dev\" \" cd server && npm run dev\""
+  },
+  "devDependencies": {
+    "xo": "^0.54.2"
+  },
+  "dependencies": {
+    "@ant-design/plots": "^1.2.5",
+    "react-countdown": "^2.3.5",
+    "uuid": "^9.0.1",
+    "concurrently": "^8.2.2"
+  }
+}
