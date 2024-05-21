@@ -1,0 +1,20 @@
+.groupRadio,
+.contractActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.contractActions {
+  gap: 8px;
+  margin-top: 16px;
+}
+.noContractInfo {
+  margin: 20px 0;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  font-size: 14px;
+}

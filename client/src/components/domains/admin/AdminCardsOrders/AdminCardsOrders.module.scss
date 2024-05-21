@@ -1,0 +1,34 @@
+@import '@/styles/colors';
+
+.addNewCardsButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tableWrapper {
+  margin-top: 30px;
+}
+
+.statusLabel-19 {
+  color: #868686;
+}
+
+.statusLabel-21 {
+  color: #f00;
+}
+
+.statusLabel-20 {
+  color: $BAL-main-color;
+}
+
+.iconButton {
+  border: none;
+  border-radius: 5px;
+  background-color: transparent !important;
+  box-shadow: none;
+}
+
+.iconButton:hover {
+  color: black !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}

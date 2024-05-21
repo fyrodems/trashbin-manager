@@ -1,0 +1,96 @@
+@import '@/styles/colors';
+@import '@/styles/mixins';
+
+.filterSelect {
+  display: flex;
+  margin-left: auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.spin {
+  display: grid;
+  place-items: center;
+}
+
+.cardPanel {
+  background-color: $white !important;
+  margin: 10px 0;
+  border-radius: 8px !important;
+  border-radius: 4px;
+  border: 1px solid #ededed;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+
+  .cardHeader {
+    @include flex-custom(row, space-between, flex-start);
+
+    gap: 10px;
+    .baseCardInfo {
+      @include flex-column;
+    }
+    .dateAdded {
+      @include flex-column;
+      color: #616161;
+      font-size: 11px;
+      font-weight: 300;
+      text-align: right;
+      margin-left: 50px;
+      width: fit-content;
+      white-space: nowrap;
+    }
+  }
+
+  > div:not([tabindex]) {
+    background: rgb(229 229 229 / 40%) !important;
+
+    > div {
+      padding: 0 !important;
+    }
+  }
+}
+
+.applicationActions {
+  width: 100%;
+  @include flex-custom(row-reverse, flex-start, center);
+  gap: 10px;
+  margin: 20px 0;
+  padding-top: 15px;
+  border-top: solid rgb(188 188 188 / 40%);
+}
+
+.panelContentWrapper {
+  padding: 1px 20px;
+
+  .panelHeader,
+  .panelDetails {
+    padding: 3px 15px;
+  }
+
+  .panelHeader {
+    font-weight: 600;
+    padding: 10px 15px;
+  }
+
+  .panelDetails {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.noApplicationsInfo {
+  margin: 20px 0;
+  padding: 30px;
+  text-align: center;
+  background-color: $white;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+}
+
+.divider {
+  margin: 20px 0 10px !important;
+}

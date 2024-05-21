@@ -1,0 +1,130 @@
+@import '@/styles/colors.scss';
+@import '@/styles/mixins.scss';
+
+.page {
+  min-height: 100vh;
+  background-color: $bg-main-color;
+  position: relative;
+
+  @media screen and (max-width: 992px) {
+    div:has(ul) + main {
+      overflow: hidden;
+      height: calc(100vh - 78px);
+    }
+  }
+}
+
+.page::before {
+  background-image: url('./../../../backgrounds/background.webp');
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  opacity: 0.2;
+  content: '';
+}
+
+.headerContainer {
+  background-color: $bg-header-color;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  @include tablet {
+    img {
+      height: 31px;
+    }
+  }
+
+  > header > nav.menu {
+    min-height: 50px;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+  }
+  .header {
+    @include flex-custom(row, space-between, center);
+    // @include limit-and-center(1024px);
+    padding: 12px 30px;
+    min-height: 40px;
+    border-bottom: 5px solid $BAL-main-color;
+  }
+
+  .logo {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .navigationDetails {
+    text-align: center;
+    @include limit-and-center(fit-content);
+    color: $text-secondary-color-light;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 15px);
+
+    div {
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    @include laptop {
+      position: static;
+      transform: unset;
+      padding: 25px 0 30px;
+      max-width: 100%;
+      border-bottom: 1px solid #d9d9d9;
+      font-size: 16px;
+
+      div {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.main {
+  @include limit-and-center(1024px);
+  padding: 12px;
+  padding: 15px 30px;
+
+  &:has([class^='_loginWrapper']) {
+    padding: 0;
+    background-image: url('./../../../backgrounds/pixelisedDumpsterLogin.webp');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    max-width: 100%;
+  }
+}
+
+// menu
+.menuElement {
+  position: relative;
+}
+
+.hoverText {
+  position: absolute;
+  color: $BAL-main-color;
+  width: 0%;
+  inset: 0;
+  border-right: 4px solid $BAL-main-color;
+  overflow: hidden;
+  transition: 0.5s width;
+  padding: 0;
+}
+
+.menuElement:hover {
+  color: $BAL-main-color;
+  width: 100%;
+  filter: drop-shadow(0 0 25px $BAL-main-color);
+  white-space: nowrap;
+}

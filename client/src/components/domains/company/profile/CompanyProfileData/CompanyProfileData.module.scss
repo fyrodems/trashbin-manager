@@ -1,0 +1,59 @@
+@import '../../../../../styles/mixins.scss';
+
+.dataLabel {
+  font-weight: 600;
+  font-size: 13px;
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 5px;
+}
+
+.dataText {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+}
+
+.userDetailsWrapper {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  [class='ant-descriptions-item-content'] {
+    width: 100%;
+    display: block !important;
+  }
+
+  table {
+    border-spacing: 1rem 0;
+  }
+
+  @include tablet() {
+    flex-direction: row;
+    align-items: end;
+  }
+}
+
+.firstDescription {
+  width: 100%;
+}
+
+.secondDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 220px;
+
+  table {
+    border-spacing: 0;
+    tbody {
+      width: 100%;
+    }
+  }
+
+  button {
+    width: 100%;
+  }
+}

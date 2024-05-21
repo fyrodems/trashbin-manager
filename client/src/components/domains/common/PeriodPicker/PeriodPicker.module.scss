@@ -1,0 +1,23 @@
+.inputsWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  > div {
+    width: 100%;
+  }
+
+  .dateInputLabel {
+    margin-left: 2px;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  button {
+    border-radius: 5px;
+  }
+}

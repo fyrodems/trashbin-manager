@@ -1,0 +1,12 @@
+@import '@/styles/colors';
+
+.button {
+  color: $white;
+  font-weight: 700;
+  border-radius: 60px;
+  outline: none;
+  border: none;
+  background: $BAL-main-color;
+  cursor: pointer;
+  padding: 12px 35px;
+}

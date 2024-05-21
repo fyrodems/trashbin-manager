@@ -1,0 +1,71 @@
+@import '@/styles/mixins';
+@import '@/styles/decorationEffects';
+
+.headerBg {
+  // background: $bg-header;
+  background-color: white;
+}
+
+.headerContainer {
+  @include flex-custom(row, space-between, center);
+  height: 60px;
+  padding: 0 30px;
+
+  .healper,
+  [class*='hamburger-react'] {
+    width: 48px !important;
+  }
+}
+
+.mobileNavigation {
+  padding: 0 20px;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+
+  ul {
+    @include flex-column;
+
+    li {
+      margin: 5px;
+      font-weight: 500;
+    }
+  }
+
+  .button {
+    font-size: unset;
+    border-radius: 80px;
+    border: 2px solid $BAL-main-color;
+    margin: 15px 0;
+    padding: 5px 10px;
+    @include flex-center;
+  }
+}
+
+.desktopNavigation {
+  ul {
+    @include flex-center;
+    gap: 30px;
+  }
+
+  li {
+    // @include flex-center;
+    // height: 25px;
+    // gap: 10px;
+
+    // &::before {
+    //   @include pseudo;
+    //   position: static;
+    //   height: 100%;
+    //   width: 5px;
+    //   background: $BAL-main-color;
+    // }
+  }
+
+  li {
+    position: relative;
+  }
+  li:hover a {
+    color: $BAL-main-color;
+  }
+}

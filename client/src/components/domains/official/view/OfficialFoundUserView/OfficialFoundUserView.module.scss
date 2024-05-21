@@ -1,0 +1,17 @@
+@import '@/styles/mixins';
+
+.statusActions {
+  @include flex-column;
+  align-items: center;
+  gap: 15px;
+  margin: 30px 0 15px;
+
+  button {
+    width: fit-content;
+  }
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

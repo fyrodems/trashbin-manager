@@ -1,0 +1,19 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+  justify-content: center;
+}
+
+.input {
+  width: 50px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.status {
+  line-height: 16px;
+  min-height: 16px;
+  color: red;
+}

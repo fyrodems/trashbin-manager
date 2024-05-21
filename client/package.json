@@ -1,0 +1,47 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "codegen": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen --watch",
+    "codegen-dev": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen --watch --verbose"
+  },
+  "dependencies": {
+    "@ant-design/icons": "5.0.1",
+    "@apollo/client": "3.7.17",
+    "@graphql-codegen/cli": "3.3.0",
+    "@graphql-codegen/client-preset": "3.0.0",
+    "@graphql-codegen/introspection": "3.0.1",
+    "antd": "5.3.1",
+    "bcryptjs-react": "2.4.6",
+    "chart.js": "4.3.3",
+    "classnames": "2.3.2",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.10",
+    "final-form": "4.20.9",
+    "graphql": "^16.6.0",
+    "hamburger-react": "2.5.0",
+    "normalize.css": "8.0.1",
+    "react": "18.2.0",
+    "react-chartjs-2": "5.2.0",
+    "react-countdown": "^2.3.5",
+    "react-dom": "18.2.0",
+    "react-final-form": "6.5.9",
+    "react-icons": "4.11.0",
+    "react-idle-timer": "^5.7.2",
+    "react-router-dom": "6.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "sass": "^1.60.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  }
+}

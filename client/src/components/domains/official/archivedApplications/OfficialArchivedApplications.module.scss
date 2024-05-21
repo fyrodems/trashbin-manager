@@ -1,0 +1,62 @@
+@import '@/styles/colors';
+@import '@/styles/mixins';
+
+.filterSelect {
+  display: flex;
+  margin-left: auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.cardPanel {
+  background-color: $white !important;
+  margin: 10px 0;
+  border-radius: 8px !important;
+  border-radius: 4px;
+  border: 1px solid #ededed;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+
+  .cardHeader {
+    @include flex-column;
+    span {
+      // font-style: oblique;
+    }
+  }
+  [role='tabpanel'] {
+    background: transparent !important;
+  }
+
+  [role='tabpanel'] {
+    // background: #add99666 !important;
+    background: rgb(229 229 229 / 40%) !important;
+
+    > div {
+      padding: 0 !important;
+    }
+  }
+}
+
+.extra {
+  text-align: right;
+  color: #616161;
+  font-size: 11px;
+  font-weight: 300;
+
+  .statusLabel {
+    color: #868686;
+    font-weight: 500;
+  }
+
+  .statusLabel.Zatwierdzony {
+    color: $BAL-main-color;
+  }
+  .statusLabel.Anulowany {
+    color: #f89400;
+  }
+  .statusLabel.Odrzucony {
+    color: #f00;
+  }
+}

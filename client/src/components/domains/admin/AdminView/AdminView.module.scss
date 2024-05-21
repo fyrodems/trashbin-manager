@@ -1,0 +1,9 @@
+.adminView {
+  [data-row-key] > * {
+    min-height: 100px !important;
+  }
+
+  tbody tr td:last-of-type {
+    justify-content: space-around;
+  }
+}

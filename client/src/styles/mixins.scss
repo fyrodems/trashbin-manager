@@ -1,0 +1,121 @@
+@import './breakpoints';
+
+// breakpoints
+@mixin phone-landscape {
+  @media only screen and (min-width: $breakpoint-s) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $breakpoint-m) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (min-width: $breakpoint-l) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media only screen and (min-width: $breakpoint-xxl) {
+    @content;
+  }
+}
+
+// containers
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-custom($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin grid($columns, $rows) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+}
+
+//utils
+@mixin pseudo($display: block, $position: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $position;
+}
+
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin absolute-position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin limit-and-center($width) {
+  max-width: $width;
+  margin: 0 auto;
+}
+
+@mixin center-link {
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+}
+
+@mixin photo-params($param) {
+  width: $param;
+  height: $param;
+}

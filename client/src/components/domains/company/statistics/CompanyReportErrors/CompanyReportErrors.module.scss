@@ -1,0 +1,16 @@
+.resultWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 25px;
+  padding-bottom: 0;
+  .resultTitle {
+    margin-bottom: 24px;
+    font-size: 18px;
+  }
+
+  svg {
+    font-size: 50px;
+  }
+}

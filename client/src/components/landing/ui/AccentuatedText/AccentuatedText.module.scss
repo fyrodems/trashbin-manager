@@ -1,0 +1,29 @@
+@import '@/styles/mixins';
+@import '@/styles/colors';
+
+.accentuatedText {
+  @include flex-center-vert;
+  @include limit-and-center(400px);
+  height: 100%;
+  position: relative;
+
+  div {
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: $BAL-main-color;
+  }
+
+  P {
+    margin: 0;
+    margin-left: 20px;
+  }
+
+  @include tablet {
+    @include limit-and-center(580px);
+  }
+
+  @include desktop-large {
+    @include limit-and-center(715px);
+  }
+}

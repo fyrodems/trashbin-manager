@@ -1,0 +1,15 @@
+.formWrapper {
+  margin: 22px 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actionWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  button {
+    margin-top: 15px;
+  }
+}

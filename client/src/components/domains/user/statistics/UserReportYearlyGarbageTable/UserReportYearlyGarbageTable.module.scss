@@ -1,0 +1,52 @@
+@import '@/styles/colors';
+.tableContainer {
+  * {
+    text-align: center !important;
+  }
+
+  &::-webkit-scrollbar {
+    width: 20px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 52px;
+    background: #e0e0e0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #5f8d4e !important;
+    border-radius: 52px;
+  }
+
+  thead tr td,
+  thead tr th,
+  [data-row-key] > td:first-of-type {
+    background: $BAL-main-color !important;
+    color: $white !important;
+  }
+}
+
+.total::after {
+  background: #c9c9c9;
+}
+
+.papier::after {
+  background: #717ec5;
+}
+
+.bioodpady::after {
+  background: #4e2129;
+}
+
+.metaleITworzywa::after {
+  background: #f1ff4c;
+}
+
+.szklo::after {
+  background: #257233;
+}
+
+.zmieszane::after {
+  background: #2f2f2f;
+}

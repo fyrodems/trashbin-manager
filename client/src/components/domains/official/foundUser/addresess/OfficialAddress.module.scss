@@ -1,0 +1,26 @@
+.groupRadio,
+.addressActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.addressActions {
+  gap: 8px;
+  margin-top: 16px;
+}
+.noAddressInfo {
+  margin: 20px 0;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form {
+  button {
+    border-radius: 5px;
+  }
+}

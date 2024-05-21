@@ -1,0 +1,154 @@
+@import '@/styles/colors';
+@import '@/styles/mixins';
+
+// background
+.footerWrapper {
+  position: relative;
+  height: 500px;
+  margin-top: 100px;
+  overflow: hidden;
+  padding: 70px 30px 0;
+  color: $text-footer-color;
+
+  .gradient {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -2;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      $white 0%,
+      $white 70%,
+      $BAL-main-color 70%
+    );
+  }
+
+  .background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    z-index: -1;
+  }
+  @include tablet {
+    padding-top: 50px;
+  }
+
+  @include laptop {
+    padding: 50px 70px 0;
+  }
+}
+
+// content
+.footer {
+  font-size: 14px;
+
+  @include laptop {
+    font-size: 16px;
+    @include grid(repeat(3, 1fr), repeat(2, 1fr));
+  }
+
+  @include desktop {
+    grid-template-rows: repeat(2, auto);
+  }
+
+  @include desktop-large {
+    grid-template-columns: repeat(5, 1fr);
+    @include limit-and-center(1500px);
+  }
+}
+
+.CTA {
+  text-align: center;
+  margin-bottom: 20px;
+
+  @include phone-landscape {
+    text-align: left;
+  }
+
+  @include tablet {
+    margin-bottom: 40px;
+  }
+
+  @include laptop {
+    grid-row: 1;
+    grid-column: 1 / 4;
+    margin-bottom: 0;
+  }
+
+  @include desktop {
+    margin-bottom: 50px;
+
+    h2 {
+      margin: 30px 0;
+    }
+  }
+  @include desktop-large {
+    grid-column: 1 / 6;
+
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  .footerButton {
+    background: $white;
+    color: $text-secondary-color-dark;
+    font-size: 12px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    @include laptop {
+      padding: 25px 35px;
+      font-size: 16px;
+    }
+  }
+}
+
+.address {
+  margin: 18px 0;
+  .mail {
+    font-weight: 700;
+    text-decoration-line: underline;
+    letter-spacing: 0.5px;
+  }
+
+  @include phone-landscape {
+    margin: 10px 0;
+  }
+
+  @include laptop {
+    margin: 0;
+  }
+}
+
+.footerFirstContainer,
+.footerSecondContainer {
+  @include flex-custom(column, flex-end, flex-start);
+}
+
+.footerThirdContainer {
+  @include flex-custom(row, space-between, flex-end);
+
+  @include tablet {
+    justify-content: flex-end;
+    gap: 40px;
+  }
+
+  @include desktop-large {
+    grid-column-start: 5;
+  }
+}
+
+.footerFirstContainer > .address:first-child {
+  @include laptop {
+    margin: 30px 0;
+  }
+}
+
+.socials {
+  @include flex-custom(row, space-between, flex-end);
+  gap: 12px;
+}

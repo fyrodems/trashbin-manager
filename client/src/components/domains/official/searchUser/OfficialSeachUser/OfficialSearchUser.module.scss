@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: center;
+  > div:first-of-type {
+    width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+
+    label {
+      left: 14px;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.addUserButton {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    border-radius: 5px;
+  }
+}
+.passwordWrapper {
+  position: relative;
+
+  .hidePassword {
+    position: absolute;
+    top: 38px;
+    right: 3px;
+    cursor: pointer;
+    color: #7dad51;
+    text-decoration: underline;
+    padding: 8px;
+    z-index: 300;
+
+    svg {
+      font-size: 22px;
+    }
+  }
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.section {
+  margin-bottom: 12px;
+}
+
+.contentBg {
+  background-color: white;
+}
+
+.dataLabel {
+  font-weight: 600;
+  font-size: 13px;
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 5px;
+}
+
+.dataText {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+}
+
+.userDetailsWrapper {
+  display: flex;
+  [class='ant-descriptions-item-content'] {
+    width: 100%;
+    display: block !important;
+  }
+
+  table {
+    border-spacing: 1rem 0;
+  }
+}
+
+.firstDescription {
+  width: 100%;
+}
+
+.secondDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  max-width: 250px;
+  width: 100%;
+
+  table {
+    border-spacing: 0;
+    tbody {
+      width: 100%;
+    }
+  }
+  button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,50 @@
+@import '@/styles/mixins';
+
+.binsWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  row-gap: 50px;
+  margin-top: 20px;
+}
+
+.bin {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  text-align: center;
+  height: fit-content;
+
+  [role='progressbar'] {
+    width: 100%;
+    @include limit-and-center(50%);
+
+    > div {
+      flex-direction: column-reverse !important;
+      gap: 5px;
+    }
+
+    div {
+      width: 100% !important;
+    }
+
+    [class='ant-progress-steps-item'] {
+      background-color: rgba(0, 0, 0, 0.15) !important;
+      height: 20px !important;
+    }
+    [class='ant-progress-steps-item ant-progress-steps-item-active'] {
+      height: 20px !important;
+    }
+  }
+  .noBinsIcon {
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .wasteLabel {
+    margin-top: 10px;
+    min-height: 45px;
+  }
+}

@@ -1,0 +1,40 @@
+.searchUserButton {
+  display: flex;
+  justify-content: center;
+
+  button {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    height: unset !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div:first-of-type {
+    width: 400px;
+    background-color: white;
+    border-radius: 5px;
+
+    input {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+
+    label {
+      left: 14px;
+      background-color: transparent;
+    }
+  }
+
+  .search {
+    display: flex;
+    gap: 8px;
+  }
+}

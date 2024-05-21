@@ -1,0 +1,5 @@
+export * from './superOfficial.mutation.addOfficial'
+export * from './superOfficial.mutation.deleteOfficial'
+export * from './superOfficial.mutation.editOfficial'
+export * from './superOfficial.mutation.restoreOfficial'
+export * from './superOfficial.query.get'

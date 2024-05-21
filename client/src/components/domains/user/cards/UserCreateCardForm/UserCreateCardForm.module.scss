@@ -1,0 +1,39 @@
+.formWrapper {
+  display: flex;
+  justify-content: flex-start;
+
+  button {
+    padding: 15px 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 992px) {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      font-size: 28px;
+
+      span {
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+.form {
+  [class='ant-select-selection-overflow-item'] {
+    display: grid !important;
+    place-items: center;
+  }
+}
+
+.actionWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  button {
+    margin-top: 15px;
+  }
+}

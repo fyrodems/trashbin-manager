@@ -1,0 +1,94 @@
+@import '@/styles/mixins';
+@import '@/styles/colors';
+@import '@/styles/decorationEffects';
+
+.mainBanner {
+  background: url(../../../../assets/landing/mainBannerImg.png);
+  width: 100%;
+  min-height: 180px;
+  aspect-ratio: 5 / 3;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position: left;
+  // @include laptop {
+  height: 96vh;
+  // }
+}
+
+.warpper {
+  height: 100%;
+  margin: auto;
+  @include flex-center-horiz;
+  flex-direction: column;
+
+  @include phone-landscape {
+    justify-content: flex-start;
+    padding-top: 80px;
+  }
+
+  @include desktop-large {
+    padding: 130px 100px;
+  }
+}
+
+.title {
+  color: $white;
+  text-shadow: $main-shadow;
+  font-weight: 700;
+  max-width: 390px;
+  padding: 20px;
+  margin: 0;
+  span span {
+    // color: $BAL-main-color;
+  }
+
+  @media screen and (max-width: 576px) {
+    font-size: 40px;
+    text-align: center;
+    margin: 0 auto;
+
+    span {
+      white-space: nowrap;
+      span {
+        color: #fff;
+      }
+    }
+  }
+
+  @include phone-landscape {
+    max-width: 500px;
+    padding-top: 0px;
+  }
+
+  @include tablet {
+    max-width: 600px;
+  }
+  @include tablet {
+    max-width: 710px;
+  }
+}
+
+.warpper a {
+  width: fit-content;
+  @media screen and (max-width: 576px) {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.button {
+  background: $BAL-main-color;
+  margin: 20px 20px 40px;
+  padding: 12px 32px;
+
+  @media screen and (max-width: 576px) {
+    font-size: 16px;
+
+    // font-size: 13px;
+  }
+
+  @include phone-landscape {
+    padding: 15px 30px;
+  }
+}

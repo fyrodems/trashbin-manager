@@ -1,0 +1,15 @@
+.result_modal {
+  padding: 20px 0;
+}
+
+.modal {
+  width: 450px !important;
+
+  [class='ant-modal-content'] {
+    padding: 0px 0;
+  }
+
+  [class='ant-result-subtitle'] div {
+    padding-bottom: 10px;
+  }
+}

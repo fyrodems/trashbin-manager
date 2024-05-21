@@ -1,0 +1,13 @@
+@import './colors';
+
+$main-shadow: 0px 4px 4px $transparent-main-color;
+
+$bg-header-gradient: linear-gradient(
+  90deg,
+  $gradient-header-main-color 0%,
+  $gradient-header-secondary-color 100%
+);
+$bg-header: $bg-header-gradient, $white;
+
+
+

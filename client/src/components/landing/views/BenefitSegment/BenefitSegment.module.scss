@@ -1,0 +1,71 @@
+@import '@/styles/mixins';
+@import '@/styles/colors';
+@import '@/styles/decorationEffects';
+
+.benefitSegment {
+  @include flex-column;
+  @include limit-and-center(80%);
+
+  &.greenBg {
+    background: $bg-secondary-color;
+    @include limit-and-center(100%);
+
+    .textWrapper {
+      @include limit-and-center(75%);
+    }
+  }
+
+  .reversed {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  h2 {
+    color: $BAL-main-color;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .notReversed {
+    h2 {
+      text-transform: uppercase;
+    }
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 50px;
+
+    &:not(.secondImage) {
+      @include desktop-large {
+        @include limit-and-center(1600px);
+        margin-bottom: 70px;
+      }
+    }
+
+    &.thirdImage {
+      @include limit-and-center(60%);
+    }
+  }
+}
+
+.benefitSegment:has(.thirdImage) {
+  margin-top: 70px;
+
+  .div:has(p):nth-of-type(2) {
+    width: 1680px !important;
+  }
+}
+
+.benefitSegment a {
+  @include center-link;
+
+  .button {
+    border: 1px solid $BAL-main-color;
+    background: $transparent-button-color;
+    min-width: 240px;
+    width: fit-content;
+    padding: 15px 40px;
+    margin: 40px auto;
+  }
+}

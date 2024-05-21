@@ -1,0 +1,48 @@
+@import '@/styles/mixins';
+@import '@/styles/colors';
+
+.videoPlayer {
+  @include phone-landscape {
+    width: 50%;
+
+    &:last-child {
+      width: 100%;
+
+      img {
+        max-width: 30%;
+      }
+    }
+
+    @include laptop {
+      width: 33.3%;
+
+      &:last-child {
+        width: 33.4%;
+
+        img {
+          max-width: 60%;
+        }
+      }
+    }
+
+    @media screen and (min-width: 2000px) {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  h3 {
+    background: $BAL-secondary-color;
+    color: $text-main-color;
+    text-align: center;
+    font-weight: 500;
+    padding: 10px;
+  }
+
+  img {
+    @include flex-center;
+    @include limit-and-center(60%);
+    margin: 40px auto;
+  }
+}

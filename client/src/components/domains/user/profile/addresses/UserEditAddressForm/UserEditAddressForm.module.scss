@@ -1,0 +1,15 @@
+.editButton {
+  color: white;
+  display: flex;
+  gap: 5px;
+  img {
+    height: 22px;
+  }
+  justify-self: end;
+}
+
+.modal {
+  button {
+    border-radius: 5px;
+  }
+}

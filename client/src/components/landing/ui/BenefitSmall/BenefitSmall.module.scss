@@ -1,0 +1,30 @@
+@import '@/styles/mixins';
+@import '@/styles/decorationEffects';
+
+.smallBenefitsWrapper {
+  @include flex-center-column;
+  max-width: 135px;
+  margin: auto;
+}
+
+.circleDecoration {
+  @include flex-center;
+  background-color: $BAL-main-color;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.benefitTitle {
+  color: #113e21;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 15px;
+}

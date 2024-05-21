@@ -1,0 +1,92 @@
+@import '@/styles/mixins';
+@import '@/styles/colors';
+@import '@/styles/decorationEffects';
+
+.offerSegment {
+  position: relative;
+  margin-bottom: 200px;
+  text-align: center;
+
+  img {
+    width: 100%;
+  }
+  @include phone-landscape {
+    margin-bottom: 250px;
+  }
+
+  @include desktop {
+    margin-bottom: 300px;
+  }
+}
+
+.offerWrapper {
+  background: $bg-secondary-color;
+  box-shadow: 0px 4px 4px 0px rgba(95, 141, 78, 0.2);
+  width: 290px;
+  top: 60px;
+  border-radius: 4px;
+  padding: 15px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  @include laptop {
+    transform: translate(-50%, -50%);
+  }
+
+  h2 {
+    color: $BAL-main-color;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: $text-main-color;
+    font-weight: 500;
+  }
+
+  @include phone-landscape {
+    width: 420px;
+    padding: 30px 40px;
+
+    h2 {
+      margin-top: 5px;
+    }
+  }
+
+  @include tablet {
+    width: 540px;
+  }
+
+  @include laptop {
+    width: 550px;
+    padding: 30px 50px;
+  }
+
+  @include desktop {
+    width: 700px;
+    padding: 30px 50px;
+
+    p {
+      @include limit-and-center(375px);
+      margin-bottom: 20px;
+    }
+  }
+  @include desktop-large {
+    width: 800px;
+    padding: 50px 80px;
+
+    p {
+      width: fit-content;
+      max-width: 500px;
+    }
+  }
+}
+
+.button {
+  background: $BAL-main-color;
+  box-shadow: $main-shadow;
+  padding: 10px 30px;
+  margin: 10px auto 5px;
+}

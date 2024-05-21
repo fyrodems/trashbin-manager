@@ -1,0 +1,19 @@
+.status {
+  z-index: 400;
+  background-color: transparent !important;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+
+  span,
+  * {
+    font-size: 18px;
+  }
+
+  .errorIcon {
+    background-color: transparent !important;
+  }
+}

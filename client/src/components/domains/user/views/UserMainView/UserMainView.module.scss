@@ -1,0 +1,19 @@
+@import '@/styles/mixins';
+.chartWrapper {
+  @include laptop {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+
+    > div {
+      width: 80%;
+    }
+  }
+}
+
+.section {
+  margin-bottom: 12px;
+}
+

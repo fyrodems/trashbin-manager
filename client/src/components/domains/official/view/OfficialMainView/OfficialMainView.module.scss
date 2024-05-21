@@ -1,0 +1,33 @@
+// .title {
+//   margin-bottom: 30px !important;
+// }
+
+// .tabs [role='tablist'] {
+//   width: 100%;
+//   max-width: 964px;
+//   white-space: wrap;
+
+//   [data-node-key] {
+//     padding-left: 0;
+//   }
+// }
+
+.inputWrapper {
+  display: flex;
+  justify-content: center;
+  > div:first-of-type {
+    width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+
+    label {
+      left: 14px;
+    }
+  }
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+}

@@ -1,0 +1,110 @@
+.addressActions,
+.addNewAddress {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.divider {
+  margin-top: 50px !important;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dataLabel {
+  font-weight: 600;
+  font-size: 13px;
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 5px;
+}
+
+.dataText {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+}
+
+[class='ant-descriptions-item-container'] {
+  width: 100%;
+}
+
+.userDetailsWrapper {
+  display: flex;
+
+  [class='ant-descriptions-item-content'] {
+    width: 100%;
+    display: block !important;
+  }
+
+  table {
+    border-spacing: 1rem 0;
+  }
+}
+
+.firstDescription {
+  width: 100%;
+
+  table {
+    border-spacing: 1rem 0;
+  }
+}
+
+.secondDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 220px;
+
+  table {
+    border-spacing: 0;
+    tbody {
+      width: 100%;
+    }
+  }
+}
+
+.addressHeaders {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dataContent {
+  width: 100%;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+
+  .centerButtonsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    gap: 1rem;
+    grid-column-start: 2;
+  }
+  button {
+    border-radius: 5px;
+  }
+}
+
+.noAddress {
+  margin: 20px 0;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  font-size: 14px;
+}

@@ -1,0 +1,21 @@
+.editButton {
+  color: white;
+  display: flex;
+  gap: 5px;
+  border-radius: 5px;
+  align-items: center;
+  img {
+    height: 22px;
+  }
+  justify-self: end;
+}
+
+.modal {
+  button {
+    border-radius: 5px;
+  }
+}
+
+.button {
+  border-radius: 5px;
+}

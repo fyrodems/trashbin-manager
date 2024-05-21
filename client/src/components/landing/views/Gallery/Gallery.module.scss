@@ -1,0 +1,50 @@
+@import '@/styles/mixins';
+@import '@/styles/colors';
+
+.gallery {
+  @include limit-and-center(80%);
+
+  .title {
+    color: $BAL-main-color;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    @include limit-and-center(90%);
+    margin-bottom: 50px;
+  }
+}
+
+.photoWrapper {
+  @include flex-center-column;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  @include phone-landscape {
+    @include grid(1fr 1fr, auto);
+  }
+  @include desktop-large {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  img {
+    @include photo-params(200px);
+    @include phone-landscape {
+      margin: 0 auto;
+    }
+    @include tablet {
+      @include photo-params(250px);
+    }
+    @include laptop {
+      @include photo-params(300px);
+    }
+    @include desktop {
+      @include photo-params(350px);
+    }
+    @include desktop-large {
+      // @include photo-params(500px);
+    }
+    @media (min-width: 2100px) {
+      @include photo-params(500px);
+    }
+  }
+}

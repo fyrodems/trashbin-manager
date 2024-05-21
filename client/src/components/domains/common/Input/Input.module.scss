@@ -1,0 +1,185 @@
+@import '@/styles/colors';
+@import '@/styles/mixins';
+
+.container {
+  display: block;
+  width: 100%;
+}
+
+.label {
+  line-height: 20px;
+}
+
+.status {
+  line-height: 16px;
+  min-height: 16px;
+  color: red;
+}
+
+.input {
+  min-width: 150px;
+  padding: 10px 18px;
+  z-index: 1;
+  background: transparent;
+  border-radius: 5px;
+
+  /* reset autocomplete background */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}
+
+.inputNumber {
+  min-width: 150px;
+  padding: 5px 0px;
+  z-index: 1;
+  background: transparent;
+  width: 100%;
+  border-radius: 3px;
+
+  /* reset autocomplete background */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}
+
+.select {
+  width: 100%;
+  min-height: 43px;
+
+  div,
+  input {
+    min-height: 43px;
+  }
+
+  span {
+    color: $text-secondary-color-dark !important;
+  }
+
+  .ant-select-selection-placeholder {
+    display: flex;
+    align-items: center;
+  }
+  > div > span {
+    display: flex;
+    align-items: center;
+  }
+}
+
+::selection {
+  background: rgba(63, 173, 67, 0.3);
+}
+
+::-webkit-input-placeholder {
+  color: $text-secondary-color-dark !important;
+}
+
+::-moz-placeholder {
+  color: $text-secondary-color-dark !important;
+}
+
+::-ms-placeholder {
+  color: $text-secondary-color-dark !important;
+}
+
+::placeholder {
+  color: $text-secondary-color-dark !important;
+}
+
+/** google input  */
+
+.gInput {
+  position: relative;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.gInput label {
+  background: linear-gradient(180deg, transparent 25%, white 50%, transparent);
+  padding: 3px;
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: bottom left;
+  color: $text-main-color;
+  position: absolute;
+  top: 8px;
+  left: 7px;
+  z-index: 0;
+  cursor: text;
+}
+
+.gInput input,
+.gInput textarea {
+  border: 1px solid #ddd;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.gInput.fill {
+  display: block;
+  width: 100%;
+}
+
+.gInput input:focus,
+.gInput textarea:focus {
+  outline: 0;
+  border-color: $BAL-main-color;
+}
+
+.gInput input:focus + label,
+.gInput input:not(:placeholder-shown) + label,
+.gInput textarea:focus + label,
+.gInput textarea:not(:placeholder-shown) + label {
+  transform: translateX(-3px) translateY(-20px);
+  font-size: 12px;
+  color: $text-secondary-color-light;
+  z-index: 1;
+}
+
+.gInput.withGradient input:focus + label,
+.gInput.withGradient input:not(:placeholder-shown) + label,
+.gInput.withGradient textarea:focus + label,
+.gInput.withGradient textarea:not(:placeholder-shown) + label {
+  background: linear-gradient(
+    180deg,
+    transparent 25%,
+    rgb(243, 243, 243) 45%,
+    rgb(255, 255, 255) 50%,
+    transparent
+  );
+}
+
+/** input number */
+
+.gInput:has(input:focus) div + label,
+.gInput:has(input:not(:placeholder-shown)) div + label,
+.gInput:has(textarea:focus) div + label,
+.gInput:has(textarea:not(:placeholder-shown)) div + label {
+  transform: translateX(-3px) translateY(-20px);
+  font-size: 12px;
+  color: $text-secondary-color-light;
+  z-index: 1;
+}
+
+.gInput.withGradient:has(input:focus) div + label,
+.gInput.withGradient:has(input:not(:placeholder-shown)) div + label,
+.gInput.withGradient:has(textarea:focus) div + label,
+.gInput.withGradient:has(textarea:not(:placeholder-shown)) div + label {
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(255, 255, 255, 1) 50%
+  );
+}

@@ -1,0 +1,22 @@
+@import '@/styles/colors';
+
+.addNewCardsButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tableWrapper {
+  margin-top: 30px;
+}
+
+.statusLabel-19 {
+  color: #868686;
+}
+
+.statusLabel-21 {
+  color: #f00;
+}
+
+.statusLabel-20 {
+  color: $BAL-main-color;
+}

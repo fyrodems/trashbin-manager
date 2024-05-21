@@ -1,0 +1,72 @@
+@import '@/styles/mixins';
+@import '@/styles/colors';
+.form {
+  @include limit-and-center(70%);
+
+  @include tablet {
+    max-width: 600px;
+  }
+
+  > div {
+    @include flex-center-column;
+  }
+
+  .heading {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+
+    &::before {
+      @include pseudo;
+      position: static;
+      background-color: $BAL-main-color;
+      height: 1px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.registerButton {
+  color: $white;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 20px 35px;
+  @include flex-center;
+  margin: 20px auto;
+}
+
+.loginContainer {
+  @include flex-column;
+  color: $BAL-main-color;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* inputy */
+
+.inputWrapper {
+  width: 100%;
+  @include flex-column;
+
+  div {
+    border-radius: 5px;
+  }
+
+  input {
+    width: 100%;
+  }
+  @include phone-landscape {
+    @include flex-center-vert;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.passwordInput [data-role='status'] span {
+  right: 20px !important;
+}

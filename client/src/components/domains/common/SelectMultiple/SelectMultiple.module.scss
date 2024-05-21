@@ -1,0 +1,71 @@
+@import '@/styles/colors';
+
+.container {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.label {
+  line-height: 20px;
+}
+
+.validationError {
+  right: 30px;
+}
+
+.input {
+  min-width: 150px;
+  padding: 10px 18px;
+
+  /* reset autocomplete background */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}
+
+.select {
+  width: 100%;
+  min-height: 43px;
+
+  div,
+  input {
+    min-height: 43px;
+  }
+
+  span {
+    color: $text-secondary-color-dark !important;
+  }
+
+  .ant-select-selection-placeholder {
+    display: flex;
+    align-items: center;
+  }
+  > div > span {
+    display: flex;
+    align-items: center;
+  }
+}
+
+::selection {
+  background: rgba(63, 173, 67, 0.3);
+}
+
+::-webkit-input-placeholder {
+  color: $text-secondary-color-dark !important;
+}
+
+::-moz-placeholder {
+  color: $text-secondary-color-dark !important;
+}
+
+::-ms-placeholder {
+  color: $text-secondary-color-dark !important;
+}
+
+::placeholder {
+  color: $text-secondary-color-dark !important;
+}

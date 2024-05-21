@@ -1,0 +1,11 @@
+.iconButton {
+  border: none;
+  border-radius: 5px;
+  background-color: transparent !important;
+  box-shadow: none;
+}
+
+.iconButton:hover {
+  color: black !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}

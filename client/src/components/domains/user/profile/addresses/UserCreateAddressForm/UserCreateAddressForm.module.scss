@@ -1,0 +1,28 @@
+.form {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease-in-out;
+
+  &.open {
+    max-height: 1000px;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:focus + label,
+  textarea:not(:placeholder-shown) + label {
+    transform: translateX(-3px) translateY(-20px);
+    font-size: 12px;
+    background: linear-gradient(
+      180deg,
+      transparent 40%,
+      rgba(255, 255, 255, 1) 40%
+    );
+  }
+}
+
+.submitButton {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px;
+}
